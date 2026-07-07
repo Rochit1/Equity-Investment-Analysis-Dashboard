@@ -1,20 +1,25 @@
 # 📊 Equity Investment Analysis Dashboard
 
-An interactive **Power BI dashboard** built to analyze publicly listed Indian companies across the **Energy** and **Metal** sectors. This project transforms raw financial data into meaningful business insights through interactive visualizations, DAX calculations, and financial KPI analysis.
+An interactive **Power BI dashboard** built to analyze publicly listed Indian companies across the **Energy** and **Metal** sectors. The dashboard transforms raw financial data into meaningful business insights through interactive visualizations, DAX calculations, peer benchmarking, and a custom investment scoring model.
 
 ---
 
-## 🚀 Project Overview
+# 🚀 Project Overview
 
-This dashboard was developed to simulate a real-world investment research platform where users can:
+This project was inspired by my exposure to equity markets during my internship at **Arihant Capital**. To deepen my understanding of financial analysis and business intelligence, I developed an end-to-end Power BI dashboard that enables users to explore company fundamentals, compare sector performance, analyze peer groups, and identify investment opportunities using publicly available financial data.
 
-- Compare sector performance
-- Analyze individual company fundamentals
-- Perform peer comparison
-- Evaluate financial metrics
-- Screen companies using a custom investment scoring model
+The dashboard follows a complete analytical workflow—from executive summaries to detailed company analysis and finally actionable business insights.
 
-The project focuses on making financial analysis simple, interactive, and visually engaging.
+---
+
+# 🎯 Business Objectives
+
+- Analyze financial performance across Energy and Metal sector companies.
+- Compare sector-level financial metrics.
+- Evaluate individual company fundamentals.
+- Perform peer-to-peer valuation comparison.
+- Build an investment screener using custom scoring metrics.
+- Present financial insights through an interactive dashboard.
 
 ---
 
@@ -24,7 +29,7 @@ The project focuses on making financial analysis simple, interactive, and visual
 |------|---------|
 | **Power BI** | Dashboard Development |
 | **Power Query** | Data Cleaning & Transformation |
-| **DAX** | Financial KPIs & Business Logic |
+| **DAX** | Business Logic & Financial Measures |
 | **Excel** | Data Collection & Preparation |
 | **NSE India** | Financial Data Source |
 | **Screener.in** | Company Financial Metrics |
@@ -33,62 +38,59 @@ The project focuses on making financial analysis simple, interactive, and visual
 
 # 📂 Dashboard Pages
 
-## 1️⃣ Executive Overview
+## 📄 Page 1 – Executive Overview
 
 Provides a high-level snapshot of the Energy and Metal sectors.
 
 ### Features
 - Executive KPI Cards
+- Market Capitalization Analysis
+- Revenue & Profit Overview
+- Average PE & ROE
 - Sector Distribution
-- Revenue Analysis
-- Market Capitalization Comparison
-- Financial Performance Overview
 - Interactive Navigation
 
 ![Executive Overview](Screenshots/Executive%20Overview.png)
 
 ---
 
-## 2️⃣ Sector Analysis
+## 📄 Page 2 – Sector Analysis
 
-Compares the overall performance of the Energy and Metal sectors.
+Compares the overall financial performance of both sectors.
 
 ### Features
-
 - Revenue Comparison
-- Net Profit Analysis
+- Net Profit Comparison
 - Return on Equity (ROE)
-- Dividend Yield
 - Debt-to-Equity Ratio
+- Dividend Yield
 - PE Ratio Comparison
 
 ![Sector Analysis](Screenshots/Sector%20Analysis.png)
 
 ---
 
-## 3️⃣ Company Deep Dive
+## 📄 Page 3 – Company Deep Dive
 
-Allows users to analyze a selected company in detail.
+Allows users to explore a selected company in detail.
 
 ### Features
-
 - Company Profile
-- Revenue Trend
-- Profit Trend
-- Shareholding Pattern
-- Peer Company Comparison
-- Financial Ratios
+- Revenue & Profit Trends
+- Financial KPI Cards
+- Ownership Breakdown
+- Dynamic Peer Comparison
+- Company-Level Analysis
 
 ![Company Deep Dive](Screenshots/Company%20Deep%20Dive.png)
 
 ---
 
-## 4️⃣ Investment Screener
+## 📄 Page 4 – Investment Screener
 
-Ranks companies using a custom investment scoring model.
+Ranks companies using a custom investment scoring framework.
 
 ### Features
-
 - Overall Investment Score
 - Quality Score
 - Value Score
@@ -100,50 +102,80 @@ Ranks companies using a custom investment scoring model.
 
 ---
 
-# 📈 Key Financial KPIs
+## 📄 Page 5 – Key Insights
+
+Summarizes the major findings from the dashboard.
+
+### Features
+- Sector Scale Analysis
+- Profitability Insights
+- Valuation Observations
+- Top Ranked Companies
+- Business Summary & Conclusions
+
+![Key Insights](Screenshots/Key%20Insights.png)
+
+---
+
+# 📊 Key Financial Metrics
 
 The dashboard analyzes multiple financial indicators including:
 
+- Market Capitalization
 - Revenue
 - Net Profit
-- Market Capitalization
-- PE Ratio
-- ROE
-- EPS
-- Debt-to-Equity
+- Price-to-Earnings (PE) Ratio
+- Return on Equity (ROE)
+- Earnings Per Share (EPS)
 - Dividend Yield
+- Debt-to-Equity Ratio
 - Promoter Holding
 - FII Holding
 - Overall Investment Score
 
 ---
 
-# 📊 DAX Concepts Used
+# 📈 DAX Concepts Used
 
-The dashboard uses multiple DAX measures including:
+This project utilizes several DAX concepts to build dynamic and interactive reports.
 
 - CALCULATE()
 - FILTER()
 - DIVIDE()
 - SWITCH()
 - VAR
-- TREATAS()
-- REMOVEFILTERS()
 - SELECTEDVALUE()
+- REMOVEFILTERS()
+- TREATAS()
 - SUMX()
 
 ---
 
-# 📌 Key Features
+# 💼 Business Questions Answered
 
-- Interactive Company Selection
+This dashboard helps answer questions such as:
+
+- Which sector performs better financially?
+- Which companies generate the highest revenue and profit?
+- Which companies appear undervalued based on PE ratio?
+- How does a selected company compare with its peers?
+- Which companies rank highest using quality, value, and growth metrics?
+- What are the key insights derived from the analyzed dataset?
+
+---
+
+# ✨ Key Features
+
+- Interactive Dashboard Navigation
+- Dynamic Company & Sector Selection
+- Executive KPI Dashboard
+- Sector-wise Financial Analysis
+- Company Deep Dive
 - Dynamic Peer Comparison
-- Sector-wise Analysis
-- Financial KPI Dashboard
-- Investment Ranking System
-- Professional Dashboard Navigation
-- Responsive Visualizations
-- Business-Oriented Storytelling
+- Investment Screener
+- Business Insights & Recommendations
+- Professional Dashboard Design
+- Storytelling with Financial Data
 
 ---
 
@@ -161,7 +193,8 @@ Equity-Investment-Analysis-Dashboard
 │   ├── Executive Overview.png
 │   ├── Sector Analysis.png
 │   ├── Company Deep Dive.png
-│   └── Investment Screener.png
+│   ├── Investment Screener.png
+│   └── Key Insights.png
 │
 ├── README.md
 ├── LICENSE
@@ -170,28 +203,29 @@ Equity-Investment-Analysis-Dashboard
 
 ---
 
-# 📊 Data Sources
+# 📚 Data Sources
 
-The dashboard uses publicly available financial information collected from:
+Financial data was collected from publicly available sources:
 
 - NSE India
 - Screener.in
 
-This project is intended for educational and portfolio purposes only.
+> **Disclaimer:** This dashboard has been developed solely for educational, analytical, and portfolio purposes. It should not be considered investment advice.
 
 ---
 
-# 🎯 Skills Demonstrated
+# 🎓 Skills Demonstrated
 
-- Business Intelligence
-- Dashboard Design
-- Data Visualization
-- Financial Analysis
-- DAX Programming
+- Power BI Dashboard Development
 - Data Modeling
-- Power Query
-- Analytical Thinking
-- KPI Development
+- Power Query (ETL)
+- DAX Programming
+- Financial Analysis
+- Business Intelligence
+- KPI Design
+- Interactive Report Development
+- Data Visualization
+- Investment Research
 - Storytelling with Data
 
 ---
@@ -199,8 +233,6 @@ This project is intended for educational and portfolio purposes only.
 # 👨‍💻 Author
 
 **Rochit Surana**
-
-
 
 ---
 
