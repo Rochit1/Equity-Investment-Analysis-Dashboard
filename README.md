@@ -1,5 +1,7 @@
 # 📊 Equity Investment Analysis Dashboard
 
+![image alt](https://github.com/Rochit1/Equity-Investment-Analysis-Dashboard/blob/f2259a0420995fb2cb275c146a450e168e3b6286/Screenshots/Executive%20Overview.png)
+
 An interactive **Power BI dashboard** built to analyze publicly listed Indian companies across the **Energy** and **Metal** sectors. The dashboard transforms raw financial data into meaningful business insights through interactive visualizations, DAX calculations, peer benchmarking, and a custom investment scoring model.
 
 ---
