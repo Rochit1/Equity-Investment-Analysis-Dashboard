@@ -2,13 +2,13 @@
 
 ![image alt](https://github.com/Rochit1/Equity-Investment-Analysis-Dashboard/blob/db92db1657563481321770596869f688935f05ee/Screenshots/Executive%20Overview.png)
 
-An interactive **Power BI dashboard** built to analyze publicly listed Indian companies across the **Energy** and **Metal** sectors. The dashboard transforms raw financial data into meaningful business insights through interactive visualizations, DAX calculations, peer benchmarking, and a custom investment scoring model.
+An interactive Power BI dashboard built to analyze publicly listed Indian companies across the Energy and Metal sectors. The dashboard transforms raw financial data into meaningful business insights through interactive visualizations, DAX calculations, peer benchmarking, and a custom investment scoring model.
 
 ---
 
 # 🚀 Project Overview
 
-This project was inspired by my exposure to equity markets during my internship at **Arihant Capital**. To deepen my understanding of financial analysis and business intelligence, I developed an end-to-end Power BI dashboard that enables users to explore company fundamentals, compare sector performance, analyze peer groups, and identify investment opportunities using publicly available financial data.
+This project was inspired by my exposure to equity markets during my internship at Arihant Capital. To deepen my understanding of financial analysis and business intelligence, I developed an end-to-end Power BI dashboard that enables users to explore company fundamentals, compare sector performance, analyze peer groups, and identify investment opportunities using publicly available financial data.
 
 The dashboard follows a complete analytical workflow—from executive summaries to detailed company analysis and finally actionable business insights.
 
@@ -35,6 +35,7 @@ The dashboard follows a complete analytical workflow—from executive summaries 
 | **Excel** | Data Collection & Preparation |
 | **NSE India** | Financial Data Source |
 | **Screener.in** | Company Financial Metrics |
+| **Python** | Optional data validation & cleaning layer |
 
 ---
 
@@ -104,7 +105,23 @@ Ranks companies using a custom investment scoring framework.
 
 ---
 
-## 📄 Page 5 – Key Insights
+## 📄 Page 5 – Financial Health
+
+Assesses bankruptcy/distress risk for each company using the Altman Z-Score model.
+
+### Features
+- Company Selector
+- Z-Score Components (X1-X5)
+- Final Z-Score & Health Status (Safe/Grey/Distress)
+- Market Cap vs Debt Comparison
+- Z-Score by Company
+- Peer Comparison on Z-Score
+
+![Key Insights](Screenshots/Financial%20Health.png)
+
+---
+
+## 📄 Page 6 – Key Insights
 
 Summarizes the major findings from the dashboard.
 
@@ -134,6 +151,15 @@ The dashboard analyzes multiple financial indicators including:
 - Promoter Holding
 - FII Holding
 - Overall Investment Score
+- Altman Z-Score & Financial Health Status
+
+---
+
+🐍 Optional Python Data Preparation Layer
+
+Alongside the Power BI dashboard, this project includes a small, optional Python-based data validation and cleaning layer in the python/ folder. It reads the same source workbook the dashboard uses, validates and cleans every sheet (missing values, duplicates, missing key columns, implausible negative figures), and writes standardized CSV output — demonstrating a pathway toward automated data preparation.
+
+This does not make the dashboard real-time or live. The dashboard continues to use a fixed, historical data snapshot, exactly as described above. The Python layer is a standalone, on-demand script — see python/README.md for full details on what it does, how to run it, and how it could support periodic automated refresh in the future.
 
 ---
 
@@ -190,12 +216,21 @@ Equity-Investment-Analysis-Dashboard
 │   └── Equity Investment Dashboard.pbix
 │
 ├── Dataset
+│   └── Equity Investment Dataset.xlsx
+│
+├── python
+│   ├── data_cleaning.py
+│   ├── data_pipeline.py
+│   ├── data_source_optional.py
+│   ├── requirements.txt
+│   └── README.md
 │
 ├── Screenshots
 │   ├── Executive Overview.png
 │   ├── Sector Analysis.png
 │   ├── Company Deep Dive.png
 │   ├── Investment Screener.png
+│   ├── Financial Health.png
 │   └── Key Insights.png
 │
 ├── README.md
@@ -235,6 +270,7 @@ Financial data was collected from publicly available sources:
 # 👨‍💻 Author
 
 **Rochit Surana**
+**Ishika Chhajed**
 
 ---
 
