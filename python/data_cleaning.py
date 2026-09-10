@@ -39,6 +39,7 @@ SHEET_KEY_COLUMNS = {
     "Company_Master": ["Company"],
     "Financial Histroy": ["Company", "FY"],
     "Shareholding": ["Company"],
+    "Sheet4": ["Company"],
 }
 
 REQUIRED_COLUMNS = {
@@ -50,6 +51,14 @@ REQUIRED_COLUMNS = {
     ],
     "Financial Histroy": ["Company", "FY", "Revenue", "Profit"],
     "Shareholding": ["Company", "Promoter %", "FII %", "DII %", "Public %"],
+    # "Sheet4" holds the Altman Z-Score inputs/outputs behind the
+    # Financial Health dashboard page.
+    "Sheet4": [
+        "Company", "Working Capital", "Retained Earnings", "EBIT",
+        "Market cap", "total Borrowings", "other liabilities",
+        "total liabilities", "Revenue", "total Assets",
+        "X1", "X2", "X3", "X4", "X5", "Z Score", "Risk Zone",
+    ],
 }
 
 # Columns that must be present and non-null for a row to be usable at all.
@@ -57,6 +66,13 @@ CRITICAL_COLUMNS = {
     "Company_Master": ["Company"],
     "Financial Histroy": ["Company", "FY"],
     "Shareholding": ["Company"],
+    "Sheet4": ["Company"],
+}
+
+# Columns that should never be negative for a real company (used for
+# lightweight sanity-check warnings, not for dropping rows).
+NON_NEGATIVE_COLUMNS = {
+    "Sheet4": ["Market cap", "total liabilities", "total Assets", "Revenue"],
 }
 
 
@@ -70,6 +86,7 @@ class SheetCleaningResult:
     rows_dropped_missing_key: int
     missing_value_counts: dict = field(default_factory=dict)
     missing_expected_columns: list = field(default_factory=list)
+    negative_value_warnings: dict = field(default_factory=dict)
 
     def is_valid(self) -> bool:
         """A sheet is considered valid if no expected columns are missing
@@ -146,6 +163,19 @@ def clean_sheet(df: pd.DataFrame, sheet_name: str) -> SheetCleaningResult:
         if working[col].isna().sum() > 0
     }
 
+    # 7. Sanity-check warnings for values that shouldn't be negative
+    # (e.g. total assets, market cap). These are flagged, not corrected or
+    # dropped — a negative figure usually means a data-entry issue upstream
+    # that a human should look at, not something Python should silently fix.
+    negative_warnings = {}
+    for col in NON_NEGATIVE_COLUMNS.get(sheet_name, []):
+        if col in working.columns:
+            negative_rows = working.index[working[col] < 0].tolist()
+            if negative_rows:
+                companies = working.loc[negative_rows, "Company"].tolist() \
+                    if "Company" in working.columns else negative_rows
+                negative_warnings[col] = companies
+
     result = SheetCleaningResult(
         sheet_name=sheet_name,
         rows_in=rows_in,
@@ -154,5 +184,6 @@ def clean_sheet(df: pd.DataFrame, sheet_name: str) -> SheetCleaningResult:
         rows_dropped_missing_key=rows_dropped_missing_key,
         missing_value_counts=missing_counts,
         missing_expected_columns=missing_expected,
+        negative_value_warnings=negative_warnings,
     )
     return working, result
